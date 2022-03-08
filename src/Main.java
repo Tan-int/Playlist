@@ -57,24 +57,23 @@ public class Main {
             switch (choice) {
                 case "1":
                     if(i.hasNext()) {
-                        if(!forward) {
-                            if(i.hasNext()) {
-                                System.out.println("Replaying: " + i.next().toString());
-                                forward = true;
-                            } else {
-                                System.out.println("Not currently playing a song");
-                            }
-                            break;
-                        } else if (forward) {
+                        if(forward) {
                             if(i.hasPrevious()) {
-                                System.out.println("Replaying: " + i.previous().toString());
+                                System.out.println("Now playing: " + i.previous().toString());
                                 forward = false;
                             } else {
-                                System.out.println("Not currently playing a song");
+                                System.out.println("Reached the beginning of the playlist");
                             }
-                            break;
+                        } else{
+                            if(i.hasNext()) {
+                                System.out.println("Now playing: " + i.next().toString());
+                                forward = true;
+                            } else {
+                                System.out.println("Reached the end of the playlist");
+                            }
                         }
                     }
+                    break;
                 case "2":
                     if(!forward) {
                         if(i.hasNext()) {
