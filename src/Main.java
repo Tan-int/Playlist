@@ -56,21 +56,19 @@ public class Main {
             String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
-                    if(i.hasNext()) {
-                        if(forward) {
-                            if(i.hasPrevious()) {
-                                System.out.println("Now playing: " + i.previous().toString());
-                                forward = false;
-                            } else {
-                                System.out.println("Reached the beginning of the playlist");
-                            }
-                        } else{
-                            if(i.hasNext()) {
-                                System.out.println("Now playing: " + i.next().toString());
-                                forward = true;
-                            } else {
-                                System.out.println("Reached the end of the playlist");
-                            }
+                    if(forward) {
+                        if(i.hasPrevious()) {
+                            System.out.println("Replaying: " + i.previous().toString());
+                            forward = false;
+                        } else {
+                            System.out.println("Reached the end of the playlist");
+                        }
+                    } else {
+                        if(i.hasNext()) {
+                            System.out.println("Replaying: " + i.next().toString());
+                            forward = true;
+                        } else {
+                            System.out.println("Reached the beginning of the playlist");
                         }
                     }
                     break;
