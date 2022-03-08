@@ -73,36 +73,16 @@ public class Main {
                     }
                     break;
                 case "2":
-                    if(!forward) {
+                    if(playlist.size() > 0) {
+                        System.out.println("Song removed");
+                        i.remove();
                         if(i.hasNext()) {
-                            i.next();
-                            System.out.println("Song removed: " + i.previous().toString());
-                            i.remove();
-                            if(i.hasNext()) {
-                                System.out.println("Now playing: " + i.next().toString());
-                            } else if(i.hasPrevious()) {
-                                System.out.println("Now playing: " + i.previous().toString());
-                            } else {
-                                System.out.println("Playlist is empty");
-                            }
-                        } else {
-                            System.out.println("Not currently playing a song");
+                            System.out.println("Now playing: " + i.next());
+                        } else if(i.hasPrevious()) {
+                            System.out.println("Now playing: " + i.previous());
                         }
-                    } else if (forward) {
-                        if(i.hasPrevious()) {
-                            i.previous();
-                            System.out.println("Song removed " + i.next().toString());
-                            i.remove();
-                            if(i.hasNext()) {
-                                System.out.println("Now playing: " + i.next().toString());
-                            } else if(i.hasPrevious()) {
-                                System.out.println("Now playing: " + i.previous().toString());
-                            } else {
-                                System.out.println("Playlist is empty");
-                            }
-                        } else {
-                            System.out.println("Not currently playing a song");
-                        }
+                    } else {
+                        System.out.println("Playlist is empty");
                     }
                     break;
                 case "3":
